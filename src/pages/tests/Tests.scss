@@ -1,0 +1,35 @@
+@import "../colors.scss";
+
+.tests {
+  &__inner {
+    &-top {
+      display: flex;
+      align-items: center;
+      padding-bottom: 20px;
+      justify-content: space-between;
+    }
+  }
+
+  &__search {
+    margin-left: 20px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+
+    &-input {
+      border-radius: 20px;
+      padding: 7px 15px;
+      background-color: $color-one;
+      width: 100%;
+      color: rgb(202, 202, 202);
+      font-size: 20px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+}

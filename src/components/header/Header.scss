@@ -1,0 +1,25 @@
+@import "../colors.scss";
+
+.header {
+  background-color: $color-one;
+  position: sticky;
+  top: 0;
+  opacity: 85%;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 24px;
+    font-weight: 700;
+
+    span {
+      background-color: $color-two;
+      padding: 8px 13px;
+      border-radius: 30px;
+    }
+  }
+}

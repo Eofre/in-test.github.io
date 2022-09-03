@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  background-color: #202020;
+}
+
+section {
+  padding: 35px 0px;
+}
+
+input {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  outline: none;
+  border: none;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  outline: none;
+  border: none;
+}

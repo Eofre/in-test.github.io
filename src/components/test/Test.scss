@@ -1,0 +1,247 @@
+@import "../colors.scss";
+
+// Test Game
+
+.test-game {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: $color-one;
+  text-align: center;
+
+  &__progress {
+    padding: 2px 0px;
+    height: 2px;
+    width: 100%;
+    background-color: $color-three;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+    &-bar {
+      height: 100%;
+      padding: 1px 0px;
+      width: 0%;
+      background-color: $color-two;
+      box-shadow: 0px 0px 3px $color-two;
+      transition: all 0.3s ease;
+    }
+
+    &-question {
+      font-size: 16px;
+      color: $color-two;
+      text-shadow: 0px 0px 10px $color-two;
+    }
+  }
+
+  &__question {
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  &__answer-list {
+    width: 100%;
+    padding: 30px 70px;
+  }
+
+  &__answer-item {
+    padding: 20px;
+    font-size: 24px;
+    background-color: $color-three;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    & + & {
+      margin-top: 10px;
+    }
+
+    &:hover {
+      outline: 3px $color-two solid;
+      outline-offset: -3px;
+      box-shadow: $color-two 0px 0px 16px;
+    }
+  }
+}
+
+// Test Result
+
+$widht: 650px;
+
+.test-result {
+  padding: 20px 0px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: $widht;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: $color-one;
+  text-align: center;
+
+  &__title {
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  &__img {
+    width: 250px;
+    padding: 15px;
+  }
+
+  &__mark {
+    padding: 30px;
+  }
+
+  &__btn {
+    padding: 10px;
+    width: 100%;
+    transition: all 0.3s ease;
+    outline: 1px $color-two solid;
+    outline-offset: -3px;
+    color: $color-two;
+    background-color: transparent;
+    font-weight: 700;
+
+    &:hover {
+      transform: scale3d(1.2, 1.2, 1.2);
+      box-shadow: 0px 0px 5px $color-two;
+      text-shadow: 0px 0px 1px $color-two;
+    }
+
+    &-exit {
+      border-radius: 0px 0px 15px 15px;
+    }
+  }
+
+  &__answers {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2e2e2e;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    width: $widht;
+  }
+
+  &__answer {
+    padding: 20px 0px;
+
+    &-value {
+      padding: 10px 20px;
+      background-color: #202020;
+      border-radius: 7px;
+      transition: all 0.3s ease;
+      text-align: center;
+      width: 100%;
+
+      & + & {
+        margin-top: 7px;
+      }
+    }
+  }
+
+  &-question {
+    margin-bottom: 10px;
+  }
+}
+
+// Test Item
+
+.test-item {
+  padding-bottom: 10px;
+  border-radius: 20px;
+  width: 335px;
+  height: 520px;
+  background-color: $color-one;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 13px 5px;
+
+  &__img {
+    width: 100%;
+    height: 230px;
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    padding: 15px 10px;
+  }
+
+  &__description {
+    color: $color-description;
+    height: 230px;
+    padding: 15px 10px;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 25px $color-two;
+    outline: $color-two 3px solid;
+    transform: scale3d(1.07, 1.07, 1.07);
+  }
+}
+
+// Test Home
+
+.test-home {
+  &__inner {
+    margin: 0 auto;
+    background-color: $color-one;
+    max-width: 450px;
+    text-align: center;
+    border-radius: 15px;
+  }
+
+  &__img {
+    width: 100%;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  &__title {
+    padding: 10px;
+    font-size: 21px;
+  }
+
+  &__description {
+    padding: 15px 0px;
+    color: $color-description;
+  }
+
+  &__btn {
+    padding: 10px;
+    margin-top: 15px;
+    display: block;
+    align-items: center;
+    width: 100%;
+    border-radius: 0px 0px 15px 15px;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    outline: 1px $color-two solid;
+    outline-offset: -2px;
+    color: $color-two;
+    background-color: transparent;
+    box-shadow: 0px 0px 3px $color-two;
+    text-shadow: 0px 0px 2px $color-two;
+
+    &:hover {
+      background-color: $color-two;
+      color: #fff;
+      text-shadow: 0px 0px 1px #fff;
+    }
+  }
+}

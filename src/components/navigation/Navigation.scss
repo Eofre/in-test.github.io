@@ -1,0 +1,21 @@
+@import "../colors.scss";
+
+.navigation {
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    padding: 18px 0px;
+  }
+
+  &__link {
+    transition: all 0.3s ease;
+    padding: 18px;
+
+    &:hover {
+      background-color: $color-two;
+    }
+  }
+}
