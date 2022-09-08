@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   border-radius: 15px;
   background-color: $color-one;
@@ -38,22 +38,49 @@
     }
   }
 
+  &__inner {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+
+    &-left {
+      width: 55%;
+      img {
+        width: 100%;
+        padding: 10px;
+        border-radius: 25px;
+      }
+    }
+
+    &-right {
+      width: 45%;
+      h3 {
+        font-size: 18px;
+        color: $color-two;
+        text-shadow: $color-two 0px 0px 3px;
+      }
+    }
+  }
+
   &__question {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700;
+    padding: 0px 7px;
   }
 
   &__answer-list {
     width: 100%;
-    padding: 30px 70px;
+    padding-top: 10px;
+    height: 100%;
+    margin-top: 35px;
   }
 
   &__answer-item {
-    padding: 20px;
-    font-size: 24px;
+    padding: 10px;
+    font-size: 23px;
     background-color: $color-three;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 7px;
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -160,7 +187,7 @@ $widht: 650px;
   padding-bottom: 10px;
   border-radius: 20px;
   width: 335px;
-  height: 520px;
+  // height: 520px;
   background-color: $color-one;
   display: flex;
   flex-direction: column;
@@ -181,12 +208,23 @@ $widht: 650px;
     font-weight: 700;
     font-size: 18px;
     padding: 15px 10px;
+    height: 100px;
   }
 
   &__description {
     color: $color-description;
-    height: 230px;
+    height: 180px;
     padding: 15px 10px;
+  }
+
+  &__inner-bottom {
+    color: $color-description;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    width: 100%;
+    border-top: $color-three 2px solid;
+    padding: 7px;
   }
 
   &:hover {
@@ -218,7 +256,7 @@ $widht: 650px;
   }
 
   &__description {
-    padding: 15px 0px;
+    padding: 15px 8px;
     color: $color-description;
   }
 

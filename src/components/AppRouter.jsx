@@ -7,6 +7,7 @@ import TestGame from "../components/test/TestGame";
 import TestResult from "../components/test/TestResult";
 
 function AppRouter({ tests }) {
+  console.log(tests);
   return (
     <Routes>
       <Route exat path="/" element={<Home tests={tests} />} />

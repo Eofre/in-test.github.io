@@ -37,18 +37,26 @@ function TestGame() {
               }}
             ></div>
           </div>
-          <h3 className="test-game__question">{question.question}</h3>
-          <ul className="test-game__answer-list">
-            {question.answers.map((item, index) => (
-              <li
-                key={item}
-                onClick={() => chooseAnAnswer(index)}
-                className="test-game__answer-item"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+          <div className="test-game__inner">
+            <div className="test-game__inner-left">
+              <h3 className="test-game__question">{question.question}</h3>
+              <img src={test.img} alt="" />
+            </div>
+            <div className="test-game__inner-right">
+              <h3>Выберите один вариант ответа:</h3>
+              <ul className="test-game__answer-list">
+                {question.answers.map((item, index) => (
+                  <li
+                    key={item}
+                    onClick={() => chooseAnAnswer(index)}
+                    className="test-game__answer-item"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
           <p className="test-game__progress-question">{`${step + 1}/${
             test.questions.length
           }`}</p>
