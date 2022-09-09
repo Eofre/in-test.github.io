@@ -42,14 +42,14 @@ function Login() {
             <input
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              type="text"
+              type="login"
               className="login__form-input"
               placeholder="Логин"
             />
             <input
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              type="text"
+              type="password"
               className="login__form-input"
               placeholder="Пароль"
             />
