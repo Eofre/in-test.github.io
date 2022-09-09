@@ -488,6 +488,12 @@
       "username": "Boss",
       "password": "123",
       "testsId": [0, 1, 2]
+    },
+    {
+      "id": 1,
+      "username": "Admin",
+      "password": "123",
+      "testsId": [3, 4]
     }
   ]
 }

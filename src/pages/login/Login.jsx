@@ -15,18 +15,22 @@ function Login() {
         return usersIndex;
       }
     }
-    return "Не верный логин";
+    return "error";
   }
 
   function logInAccount(e) {
     e.preventDefault();
     const userIndex = userSearchByUsername(username);
-    const user = users[userIndex];
-    console.log(userIndex);
-    console.log(user);
-    user.password == password
-      ? console.log("Вошёл")
-      : console.log("Не верный пароль!");
+    if (userIndex == "error") {
+      alert("Логин не существует!");
+    } else {
+      const user = users[userIndex];
+      console.log(userIndex);
+      console.log(user);
+      user.password === password
+        ? alert("Вошёл!")
+        : alert("Не верный пароль, бро!");
+    }
   }
 
   return (
