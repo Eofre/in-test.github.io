@@ -12,6 +12,9 @@ function Header() {
             Educational<span>.PORTAL</span>
           </Link>
           <Navigation />
+          <Link className="header__login" to="/login">
+            Войти
+          </Link>
         </div>
       </div>
     </header>

@@ -6,6 +6,7 @@ import DB from "./server/db.json";
 
 function App() {
   const [tests, setTests] = useState(DB.tests);
+  const [loginAccount, setLoginAccount] = useState(false);
   return (
     <div className="App">
       <Header />
