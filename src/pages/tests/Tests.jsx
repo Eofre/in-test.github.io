@@ -32,12 +32,12 @@ function Tests({ tests }) {
             <h2 className="tests__title">Тесты</h2>
             <div className="tests__search">
               <input
-                type="text"
+                type="search"
                 className="tests__search-input"
                 placeholder="Поиск"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-              />
+              ></input>
             </div>
             <div className="test__sorting" style={{ cursor: "pointer" }}>
               Фильтр

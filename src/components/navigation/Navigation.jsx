@@ -12,8 +12,8 @@ function Navigation() {
           </Link>
         </li>
         <li className="navigation__item">
-          <Link to="/tests" className="navigation__link">
-            Тесты
+          <Link to="/createTest" className="navigation__link">
+            Создать тест
           </Link>
         </li>
       </ul>

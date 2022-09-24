@@ -23,6 +23,12 @@
     }
   }
 
+  &__avatar {
+    width: 47px;
+    border-radius: 50%;
+    height: 47px;
+  }
+
   &__login {
     background-color: $color-two;
     padding: 18px;

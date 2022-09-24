@@ -1,0 +1,26 @@
+@import "../colors.scss";
+
+.create-test {
+  &__form {
+    margin: 35px auto;
+    max-width: 600px;
+  }
+  &__input {
+    width: 100%;
+    height: 45px;
+    border-radius: 7px;
+    background-color: transparent;
+    border: 2px $color-two solid;
+    padding: 10px;
+    color: $color-two;
+    & + & {
+      margin-top: 10px;
+    }
+  }
+  &__question {
+    margin-top: 35px;
+  }
+  &__answers {
+    margin-top: 20px;
+  }
+}

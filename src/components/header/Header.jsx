@@ -3,18 +3,15 @@ import { Link } from "react-router-dom";
 import Navigation from "../navigation/Navigation";
 import "./Header.scss";
 
-function Header() {
+function Header({ userAuthorizationStatus }) {
   return (
     <header className="header">
       <div className="conteiner">
         <div className="header__inner">
           <Link to="/" className="header__logo">
-            Educational<span>.PORTAL</span>
+            In<span>.TEST</span>
           </Link>
           <Navigation />
-          <Link className="header__login" to="/login">
-            Войти
-          </Link>
         </div>
       </div>
     </header>
