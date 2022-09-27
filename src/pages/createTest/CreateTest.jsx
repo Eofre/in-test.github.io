@@ -3,12 +3,13 @@ import Question from "../../components/question/Question";
 import "./CreateTest.scss";
 
 function CreateTest({ tests, setTests }) {
+  const [createStatus, setCreateStatus] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [test, setTest] = useState({
     id: Date.now(),
     title: "",
     description: "",
-    img: "https://www.usynovite.ru/f/news/f14b950ecd/2020.05.27_0.jpg",
+    img: "",
     questions: [],
   });
 
@@ -27,7 +28,7 @@ function CreateTest({ tests, setTests }) {
 
   function createNewTest(e) {
     e.preventDefault();
-
+    setCreateStatus(true);
     setTests([...tests, test]);
   }
 
@@ -57,15 +58,32 @@ function CreateTest({ tests, setTests }) {
                 setTest({ ...test, description: e.target.value })
               }
             />
+            <input
+              value={test.img}
+              type="text"
+              className="create-test__input"
+              placeholder="Ссылка на изображение"
+              onChange={(e) => setTest({ ...test, img: e.target.value })}
+            />
             <div className="create-test__questions">
               {arrayQuestions}
               <button className="create-test__btn" onClick={addNewQuestion}>
                 Добавить вопрос
               </button>
             </div>
-            <button className="create-test__btn" onClick={createNewTest}>
-              Создать тест
-            </button>
+            {createStatus ? (
+              <button
+                disabled
+                className="create-test__btn"
+                onClick={createNewTest}
+              >
+                Создать тест
+              </button>
+            ) : (
+              <button className="create-test__btn" onClick={createNewTest}>
+                Создать тест
+              </button>
+            )}
           </form>
         </div>
       </div>
