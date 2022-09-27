@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Question from "../../components/question/Question";
 import "./CreateTest.scss";
 
 function CreateTest({ tests, setTests }) {
+  const [questions, setQuestions] = useState([]);
   const [test, setTest] = useState({
     id: Date.now(),
     title: "",
@@ -9,38 +11,29 @@ function CreateTest({ tests, setTests }) {
     img: "https://www.usynovite.ru/f/news/f14b950ecd/2020.05.27_0.jpg",
     questions: [],
   });
-  const [answers, setAnswers] = useState([]);
-  const [question, setQuestion] = useState({
-    question: "",
-    answers: answers,
-    currectAnswer: 0,
-  });
-  const [answer, setAnswer] = useState("");
+
+  const arrayQuestions = [];
+  const [numberOfQuestions, setNumberOfQuestions] = useState(0);
+  for (let i = 0; i < numberOfQuestions; i++) {
+    arrayQuestions.push(
+      <Question key={i} questions={questions} setQuestions={setQuestions} />
+    );
+  }
+
+  function addNewQuestion(e) {
+    e.preventDefault();
+    setNumberOfQuestions(numberOfQuestions + 1);
+  }
 
   function createNewTest(e) {
     e.preventDefault();
-    test.questions.push(question);
+
     setTests([...tests, test]);
-    setQuestion({
-      question: "",
-      answers: [],
-      currectAnswer: 0,
-    });
-    setTest({
-      id: Date.now(),
-      title: "",
-      description: "",
-      img: "https://www.usynovite.ru/f/news/f14b950ecd/2020.05.27_0.jpg",
-      questions: [],
-    });
   }
 
-  function createNewAnswer(e) {
-    e.preventDefault();
-    answers.push(answer);
-    setAnswers(answers);
-    setAnswer("");
-  }
+  useEffect(() => {
+    setTest({ ...test, questions: questions });
+  }, [questions]);
 
   return (
     <section className="create-test">
@@ -64,37 +57,15 @@ function CreateTest({ tests, setTests }) {
                 setTest({ ...test, description: e.target.value })
               }
             />
-            <div className="create-test__question">
-              <input
-                value={question.question}
-                type="text"
-                className="create-test__input"
-                placeholder="Вопрос"
-                onChange={(e) =>
-                  setQuestion({ ...question, question: e.target.value })
-                }
-              />
-              <div className="create-test__answers">
-                <input
-                  value={answer}
-                  type="text"
-                  className="create-test__input"
-                  placeholder="ответ"
-                  onChange={(e) => setAnswer(e.target.value)}
-                />
-                {answers.map((item) => (
-                  <input
-                    value={answer}
-                    type="text"
-                    className="create-test__input"
-                    placeholder="ответ"
-                    onChange={(e) => setAnswer(e.target.value)}
-                  />
-                ))}
-                <button onClick={createNewAnswer}>Добавить вопрос</button>
-              </div>
+            <div className="create-test__questions">
+              {arrayQuestions}
+              <button className="create-test__btn" onClick={addNewQuestion}>
+                Добавить вопрос
+              </button>
             </div>
-            <button onClick={createNewTest}>Создать</button>
+            <button className="create-test__btn" onClick={createNewTest}>
+              Создать тест
+            </button>
           </form>
         </div>
       </div>

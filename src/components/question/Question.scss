@@ -1,0 +1,25 @@
+@import "../colors.scss";
+
+.question {
+  padding: 15px;
+  background-color: $color-one;
+  margin: 15px 0px;
+  border-radius: 10px;
+
+  &__input {
+    padding: 15px;
+    background-color: $color-three;
+    width: 100%;
+    margin-top: 7px;
+    border-radius: 7px;
+  }
+
+  &__btn {
+    padding: 10px 15px;
+    margin-top: 7px;
+    width: 100%;
+    background-color: $color-two;
+    border-radius: 7px;
+    box-shadow: $color-two 0px 0px 3px;
+  }
+}
