@@ -9,7 +9,7 @@ $widht: 650px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: $widht;
+  max-width: $widht;
   margin: 0 auto;
   border-radius: 15px;
   background-color: $color-one;
