@@ -10,7 +10,7 @@ function Question({ questions, setQuestions }) {
   const [question, setQuestion] = useState({
     question: "",
     answers: [answer1, answer2, answer3, answer4],
-    currectAnswer: 3,
+    currectAnswer: "",
   });
 
   function saveQuestion() {
@@ -29,35 +29,88 @@ function Question({ questions, setQuestions }) {
         className="question__input"
         placeholder="Вопрос"
       />
+      <p>Поставьте галочку напротив верного ответа</p>
       <div className="answers">
-        <input
-          value={answer1}
-          onChange={(e) => setAnswer1(e.target.value)}
-          type="text"
-          className="question__input"
-          placeholder="Ответ"
-        />
-        <input
-          value={answer2}
-          onChange={(e) => setAnswer2(e.target.value)}
-          type="text"
-          className="question__input"
-          placeholder="Ответ"
-        />
-        <input
-          value={answer3}
-          onChange={(e) => setAnswer3(e.target.value)}
-          type="text"
-          className="question__input"
-          placeholder="Ответ"
-        />
-        <input
-          value={answer4}
-          onChange={(e) => setAnswer4(e.target.value)}
-          type="text"
-          className="question__input"
-          placeholder="Ответ"
-        />
+        <div>
+          <input
+            name="answer"
+            type="radio"
+            value={0}
+            onChange={(e) =>
+              setQuestion({
+                ...question,
+                currectAnswer: Number(e.target.value),
+              })
+            }
+          />
+          <input
+            value={answer1}
+            onChange={(e) => setAnswer1(e.target.value)}
+            type="text"
+            className="question__input"
+            placeholder="Ответ"
+          />
+        </div>
+        <div>
+          <input
+            name="answer"
+            type="radio"
+            value={1}
+            onChange={(e) =>
+              setQuestion({
+                ...question,
+                currectAnswer: Number(e.target.value),
+              })
+            }
+          />
+          <input
+            value={answer2}
+            onChange={(e) => setAnswer2(e.target.value)}
+            type="text"
+            className="question__input"
+            placeholder="Ответ"
+          />
+        </div>
+        <div>
+          <input
+            name="answer"
+            type="radio"
+            value={2}
+            onChange={(e) =>
+              setQuestion({
+                ...question,
+                currectAnswer: Number(e.target.value),
+              })
+            }
+          />
+          <input
+            value={answer3}
+            onChange={(e) => setAnswer3(e.target.value)}
+            type="text"
+            className="question__input"
+            placeholder="Ответ"
+          />
+        </div>
+        <div>
+          <input
+            name="answer"
+            type="radio"
+            value={3}
+            onChange={(e) =>
+              setQuestion({
+                ...question,
+                currectAnswer: Number(e.target.value),
+              })
+            }
+          />
+          <input
+            value={answer4}
+            onChange={(e) => setAnswer4(e.target.value)}
+            type="text"
+            className="question__input"
+            placeholder="Ответ"
+          />
+        </div>
       </div>
       {saveStatus ? (
         <button className="question__btn" disabled>

@@ -13,7 +13,9 @@ function CreateTest({ tests, setTests }) {
     questions: [],
   });
 
-  const arrayQuestions = [];
+  const arrayQuestions = [
+    <Question key={100000} questions={questions} setQuestions={setQuestions} />,
+  ];
   const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   for (let i = 0; i < numberOfQuestions; i++) {
     arrayQuestions.push(
@@ -26,8 +28,7 @@ function CreateTest({ tests, setTests }) {
     setNumberOfQuestions(numberOfQuestions + 1);
   }
 
-  function createNewTest(e) {
-    e.preventDefault();
+  function createNewTest() {
     setCreateStatus(true);
     setTests([...tests, test]);
   }

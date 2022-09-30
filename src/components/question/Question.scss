@@ -9,9 +9,10 @@
   &__input {
     padding: 15px;
     background-color: $color-three;
-    width: 100%;
+    width: 95%;
     margin-top: 7px;
     border-radius: 7px;
+    margin-left: 10px;
   }
 
   &__btn {
@@ -21,5 +22,13 @@
     background-color: $color-two;
     border-radius: 7px;
     box-shadow: $color-two 0px 0px 3px;
+  }
+
+  p {
+    color: $color-description;
+    padding: 10px 0px;
+  }
+
+  &__answers {
   }
 }
