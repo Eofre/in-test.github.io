@@ -26,13 +26,14 @@ function Question({ questions, setQuestions }) {
         value={question.question}
         onChange={(e) => setQuestion({ ...question, question: e.target.value })}
         type="text"
-        className="question__input"
+        className="question__input-question"
         placeholder="Вопрос"
       />
       <p>Поставьте галочку напротив верного ответа</p>
       <div className="answers">
         <div>
           <input
+            className="question__radio"
             name="answer"
             type="radio"
             value={0}
@@ -53,6 +54,7 @@ function Question({ questions, setQuestions }) {
         </div>
         <div>
           <input
+            className="question__radio"
             name="answer"
             type="radio"
             value={1}
@@ -73,6 +75,7 @@ function Question({ questions, setQuestions }) {
         </div>
         <div>
           <input
+            className="question__radio"
             name="answer"
             type="radio"
             value={2}
@@ -93,6 +96,7 @@ function Question({ questions, setQuestions }) {
         </div>
         <div>
           <input
+            className="question__radio"
             name="answer"
             type="radio"
             value={3}
