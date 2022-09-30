@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./Test.scss";
+import "./TestHome.scss";
 
 function TestHome() {
   const router = useNavigate();

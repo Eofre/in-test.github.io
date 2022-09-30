@@ -1,7 +1,6 @@
 import React from "react";
 import "./Home.scss";
-import TestGame from "../../components/test/TestGame";
-import TestItem from "../../components/test/TestItem";
+import TestItem from "../../components/testItem/TestItem.jsx";
 
 function Home({ tests }) {
   return (

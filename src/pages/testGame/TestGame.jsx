@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./Test.scss";
-import TestResult from "./TestResult";
+import "./TestGame.scss";
 
 function TestGame() {
   const [currectAnswers, setCurrectAnswers] = useState(0);

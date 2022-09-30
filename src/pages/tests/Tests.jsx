@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import TestItem from "../../components/test/TestItem";
+import TestItem from "../../components/testItem/TestItem.jsx";
 import "./Tests.scss";
 
 const filterTests = (searchText, listOfTests) => {
@@ -38,9 +38,6 @@ function Tests({ tests }) {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               ></input>
-            </div>
-            <div className="test__sorting" style={{ cursor: "pointer" }}>
-              Фильтр
             </div>
           </div>
           <div className="tests__list">

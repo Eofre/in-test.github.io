@@ -36,6 +36,7 @@ function Question({ questions, setQuestions }) {
             className="question__radio"
             name="answer"
             type="radio"
+            checked
             value={0}
             onChange={(e) =>
               setQuestion({

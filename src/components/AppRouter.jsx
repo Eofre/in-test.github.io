@@ -2,10 +2,10 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home/Home";
 import Tests from "../pages/tests/Tests";
-import TestHome from "../components/test/TestHome";
-import TestGame from "../components/test/TestGame";
-import TestResult from "../components/test/TestResult";
 import CreateTest from "../pages/createTest/CreateTest";
+import TestHome from "../pages/testHome/TestHome";
+import TestGame from "../pages/testGame/TestGame";
+import TestResult from "../pages/testResult/TestResult";
 
 function AppRouter({ tests, setTests }) {
   return (
