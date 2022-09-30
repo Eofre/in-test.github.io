@@ -16,12 +16,12 @@ function Tests({ tests }) {
   const [testList, setTestList] = useState(tests);
 
   useEffect(() => {
-    const Debounce = setTimeout(() => {
+    const debounce = setTimeout(() => {
       const filteredTests = filterTests(searchTerm, tests);
       setTestList(filteredTests);
     }, 300);
 
-    return () => clearTimeout(Debounce);
+    return () => clearTimeout(debounce);
   }, [searchTerm]);
 
   return (

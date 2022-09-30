@@ -19,3 +19,23 @@
     }
   }
 }
+
+// Адаптив
+@media screen and (max-width: 576px) {
+  .navigation {
+    font-size: 17px;
+
+    &__item {
+      text-align: center;
+
+      margin-left: 11px;
+    }
+    &__link {
+      padding: 0px;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
