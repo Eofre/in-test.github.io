@@ -13,7 +13,7 @@ function TestItem({ test }) {
       <h4 className="test-item__title">{test.title}</h4>
       <p className="test-item__description">{test.description}</p>
       <div className="test-item__inner-bottom">
-        <span className="test-item__date">Дата: {test.date}</span>
+        <span className="test-item__date">Дата: {test.questions.length}</span>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import TestHome from "../pages/testHome/TestHome";
 import TestGame from "../pages/testGame/TestGame";
 import TestResult from "../pages/testResult/TestResult";
 
-function AppRouter({ tests, setTests }) {
+function AppRouter({ tests, addTest }) {
   return (
     <Routes>
       <Route exat path="/" element={<Tests tests={tests} />} />
@@ -17,7 +17,7 @@ function AppRouter({ tests, setTests }) {
       <Route
         exat
         path="/createTest"
-        element={<CreateTest tests={tests} setTests={setTests} />}
+        element={<CreateTest addTest={addTest} />}
       />
     </Routes>
   );

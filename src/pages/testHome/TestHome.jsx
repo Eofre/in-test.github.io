@@ -7,6 +7,8 @@ function TestHome() {
   const location = useLocation();
   const test = location.state;
 
+  console.log(test);
+
   return (
     <section className="test-home">
       <div className="conteiner">

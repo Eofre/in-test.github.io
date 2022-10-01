@@ -7,10 +7,14 @@ import DB from "./server/db.json";
 function App() {
   const [tests, setTests] = useState(DB.tests);
 
+  const addTest = (test) => {
+    setTests([...tests, test]);
+  };
+
   return (
     <div className="App">
       <Header />
-      <AppRouter tests={tests} setTests={setTests} />
+      <AppRouter tests={tests} addTest={addTest} />
     </div>
   );
 }

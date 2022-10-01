@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Question.scss";
 
-function Question({ questions, setQuestions }) {
+function Question({ addQuestion, removeQuestion, id }) {
   const [answer1, setAnswer1] = useState("");
   const [answer2, setAnswer2] = useState("");
   const [answer3, setAnswer3] = useState("");
   const [answer4, setAnswer4] = useState("");
   const [saveStatus, setSaveStatus] = useState(false);
   const [question, setQuestion] = useState({
+    id: id,
     question: "",
     answers: [answer1, answer2, answer3, answer4],
     currectAnswer: "",
@@ -17,11 +18,12 @@ function Question({ questions, setQuestions }) {
     let tempObjectQuestion = question;
     tempObjectQuestion.answers = [answer1, answer2, answer3, answer4];
     setSaveStatus(true);
-    setQuestions([...questions, tempObjectQuestion]);
+    addQuestion(tempObjectQuestion);
   }
 
   return (
     <div className="question">
+      <button onClick={() => removeQuestion(question)}>Удалить</button>
       <input
         value={question.question}
         onChange={(e) => setQuestion({ ...question, question: e.target.value })}

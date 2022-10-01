@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Question from "../../components/question/Question";
 import "./CreateTest.scss";
 
-function CreateTest({ tests, setTests }) {
+function CreateTest({ addTest }) {
   const [createStatus, setCreateStatus] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [test, setTest] = useState({
@@ -13,24 +13,31 @@ function CreateTest({ tests, setTests }) {
     questions: [],
   });
 
+  const addQuestion = (question) => {
+    setQuestions([...questions, question]);
+  };
+  const removeQuestion = (question) => {
+    setQuestions(questions.filter((q) => q.id !== question.id));
+  };
   const arrayQuestions = [
-    <Question key={100000} questions={questions} setQuestions={setQuestions} />,
+    <Question key={100000} id={1000000} addQuestion={addQuestion} />,
   ];
+
   const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   for (let i = 0; i < numberOfQuestions; i++) {
     arrayQuestions.push(
-      <Question key={i} questions={questions} setQuestions={setQuestions} />
+      <Question
+        key={i}
+        id={i}
+        addQuestion={addQuestion}
+        removeQuestion={removeQuestion}
+      />
     );
   }
 
   function addNewQuestion(e) {
     e.preventDefault();
     setNumberOfQuestions(numberOfQuestions + 1);
-  }
-
-  function createNewTest() {
-    setCreateStatus(true);
-    setTests([...tests, test]);
   }
 
   useEffect(() => {
@@ -73,15 +80,17 @@ function CreateTest({ tests, setTests }) {
               </button>
             </div>
             {createStatus ? (
-              <button
-                disabled
-                className="create-test__btn"
-                onClick={createNewTest}
-              >
+              <button disabled className="create-test__btn">
                 Создать тест
               </button>
             ) : (
-              <button className="create-test__btn" onClick={createNewTest}>
+              <button
+                className="create-test__btn"
+                onClick={() => {
+                  addTest(test);
+                  setCreateStatus(true);
+                }}
+              >
                 Создать тест
               </button>
             )}
