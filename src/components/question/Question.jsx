@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Answer from "../answer/Answer";
 import "./Question.scss";
 
 function Question({ addQuestion, removeQuestion, id }) {
@@ -13,7 +14,10 @@ function Question({ addQuestion, removeQuestion, id }) {
     answers: [answer1, answer2, answer3, answer4],
     currectAnswer: "",
   });
-
+  const listAnswers = [];
+  const addListAnswers = (answer) => {
+    listAnswers.push(answer);
+  };
   function saveQuestion() {
     let tempObjectQuestion = question;
     tempObjectQuestion.answers = [answer1, answer2, answer3, answer4];
@@ -33,7 +37,8 @@ function Question({ addQuestion, removeQuestion, id }) {
       />
       <p>Поставьте галочку напротив верного ответа</p>
       <div className="answers">
-        <div>
+        <Answer />
+        {/* <div>
           <input
             className="question__radio"
             name="answer"
@@ -117,7 +122,7 @@ function Question({ addQuestion, removeQuestion, id }) {
             className="question__input"
             placeholder="Ответ"
           />
-        </div>
+        </div> */}
       </div>
       {saveStatus ? (
         <button className="question__btn" disabled>

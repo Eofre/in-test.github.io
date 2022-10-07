@@ -25,17 +25,19 @@ function TestGame() {
   }
 
   return (
-    <section>
+    <>
+      <header className="test-game__top">
+        <div className="test-game__progress">
+          <div
+            className="test-game__progress-bar"
+            style={{
+              width: `${(progress / test.questions.length) * 100}%`,
+            }}
+          ></div>
+        </div>
+      </header>
       {step != test.questions.length ? (
-        <div className="test-game">
-          <div className="test-game__progress">
-            <div
-              className="test-game__progress-bar"
-              style={{
-                width: `${(progress / test.questions.length) * 100}%`,
-              }}
-            ></div>
-          </div>
+        <section className="test-game">
           <div className="test-game__inner">
             <div className="test-game__inner-left">
               <h3 className="test-game__question">{question.question}</h3>
@@ -59,7 +61,7 @@ function TestGame() {
           <p className="test-game__progress-question">{`${step + 1}/${
             test.questions.length
           }`}</p>
-        </div>
+        </section>
       ) : (
         router(`/test/game/result/${test.id}`, {
           state: {
@@ -69,7 +71,7 @@ function TestGame() {
           },
         })
       )}
-    </section>
+    </>
   );
 }
 

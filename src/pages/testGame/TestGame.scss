@@ -12,11 +12,16 @@
   background-color: $color-one;
   text-align: center;
 
+  &__top {
+    background-color: $color-one;
+    width: 100%;
+  }
+
   &__progress {
     padding: 2px 0px;
     height: 2px;
     width: 100%;
-    background-color: $color-three;
+    background-color: $color-one;
     border-radius: 10px;
     margin-bottom: 30px;
 
