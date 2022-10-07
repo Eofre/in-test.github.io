@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Answer from "../answer/Answer";
 import "./Question.scss";
 
@@ -11,13 +11,10 @@ function Question({ addQuestion, removeQuestion, id }) {
   const [question, setQuestion] = useState({
     id: id,
     question: "",
-    answers: [answer1, answer2, answer3, answer4],
+    answers: [],
     currectAnswer: "",
   });
-  const listAnswers = [];
-  const addListAnswers = (answer) => {
-    listAnswers.push(answer);
-  };
+
   function saveQuestion() {
     let tempObjectQuestion = question;
     tempObjectQuestion.answers = [answer1, answer2, answer3, answer4];
@@ -27,7 +24,6 @@ function Question({ addQuestion, removeQuestion, id }) {
 
   return (
     <div className="question">
-      <button onClick={() => removeQuestion(question)}>Удалить</button>
       <input
         value={question.question}
         onChange={(e) => setQuestion({ ...question, question: e.target.value })}
@@ -37,13 +33,18 @@ function Question({ addQuestion, removeQuestion, id }) {
       />
       <p>Поставьте галочку напротив верного ответа</p>
       <div className="answers">
-        <Answer />
-        {/* <div>
+        <div>
+          <input
+            type="text"
+            value={answer1}
+            onChange={(e) => setAnswer1(e.target.value)}
+            placeholder="Ответ"
+            className="question__input"
+          />
           <input
             className="question__radio"
-            name="answer"
+            name={id}
             type="radio"
-            checked
             value={0}
             onChange={(e) =>
               setQuestion({
@@ -52,18 +53,18 @@ function Question({ addQuestion, removeQuestion, id }) {
               })
             }
           />
-          <input
-            value={answer1}
-            onChange={(e) => setAnswer1(e.target.value)}
-            type="text"
-            className="question__input"
-            placeholder="Ответ"
-          />
         </div>
         <div>
           <input
+            type="text"
+            value={answer2}
+            onChange={(e) => setAnswer2(e.target.value)}
+            placeholder="Ответ"
+            className="question__input"
+          />
+          <input
             className="question__radio"
-            name="answer"
+            name={id}
             type="radio"
             value={1}
             onChange={(e) =>
@@ -73,18 +74,18 @@ function Question({ addQuestion, removeQuestion, id }) {
               })
             }
           />
-          <input
-            value={answer2}
-            onChange={(e) => setAnswer2(e.target.value)}
-            type="text"
-            className="question__input"
-            placeholder="Ответ"
-          />
         </div>
         <div>
           <input
+            type="text"
+            value={answer3}
+            onChange={(e) => setAnswer3(e.target.value)}
+            placeholder="Ответ"
+            className="question__input"
+          />
+          <input
             className="question__radio"
-            name="answer"
+            name={id}
             type="radio"
             value={2}
             onChange={(e) =>
@@ -94,18 +95,18 @@ function Question({ addQuestion, removeQuestion, id }) {
               })
             }
           />
-          <input
-            value={answer3}
-            onChange={(e) => setAnswer3(e.target.value)}
-            type="text"
-            className="question__input"
-            placeholder="Ответ"
-          />
         </div>
         <div>
           <input
+            type="text"
+            value={answer4}
+            onChange={(e) => setAnswer4(e.target.value)}
+            placeholder="Ответ"
+            className="question__input"
+          />
+          <input
             className="question__radio"
-            name="answer"
+            name={id}
             type="radio"
             value={3}
             onChange={(e) =>
@@ -115,14 +116,7 @@ function Question({ addQuestion, removeQuestion, id }) {
               })
             }
           />
-          <input
-            value={answer4}
-            onChange={(e) => setAnswer4(e.target.value)}
-            type="text"
-            className="question__input"
-            placeholder="Ответ"
-          />
-        </div> */}
+        </div>
       </div>
       {saveStatus ? (
         <button className="question__btn" disabled>

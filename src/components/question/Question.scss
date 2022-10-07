@@ -9,7 +9,7 @@
   &__input {
     padding: 15px;
     background-color: $color-three;
-    width: 96%;
+    width: 94%;
     margin-top: 7px;
     border-radius: 7px;
     margin-left: 10px;
@@ -24,7 +24,8 @@
 
   &__radio {
     cursor: pointer;
-    width: 2%;
+    height: 15px;
+    margin-left: 10px;
   }
 
   &__btn {
