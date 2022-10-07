@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./TestResult.scss";
-import resultImg from "../../assets/image/test-result.png";
+import resultImg from "../../assets/image/test-result.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function TestResult() {

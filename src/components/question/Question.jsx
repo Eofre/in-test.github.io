@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Answer from "../answer/Answer";
 import "./Question.scss";
 
 function Question({ addQuestion, removeQuestion, id }) {

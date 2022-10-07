@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TestItem from "../../components/testItem/TestItem.jsx";
+
 import "./Tests.scss";
 
 const filterTests = (searchText, listOfTests) => {
