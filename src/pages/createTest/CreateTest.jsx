@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Question from "../../components/question/Question";
+import Modal from "../../components/UI/modal/Modal";
 import "./CreateTest.scss";
 
 function CreateTest({ addTest }) {
   const [createStatus, setCreateStatus] = useState(false);
+  const [modal, setModal] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [test, setTest] = useState({
     id: Date.now(),
@@ -46,6 +48,9 @@ function CreateTest({ addTest }) {
 
   return (
     <section className="create-test">
+      <Modal visible={modal} setVisible={setModal}>
+        Тест успешно создан!
+      </Modal>
       <div className="conteiner">
         <div className="create-test__inner">
           <h2 className="create-test__title">Создание теста</h2>
@@ -89,6 +94,7 @@ function CreateTest({ addTest }) {
                 onClick={() => {
                   addTest(test);
                   setCreateStatus(true);
+                  setModal(true);
                 }}
               >
                 Создать тест

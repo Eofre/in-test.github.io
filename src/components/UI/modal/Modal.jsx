@@ -1,5 +1,5 @@
 import React from "react";
-import cl from "./Modal.module.css";
+import cl from "./Modal.module.scss";
 
 function Modal({ children, visible, setVisible }) {
   const rootClasses = [cl.modal];
@@ -9,7 +9,12 @@ function Modal({ children, visible, setVisible }) {
 
   return (
     <div className={rootClasses.join(" ")}>
-      <div className={cl.modalContent}>{children}</div>
+      <div className={cl.modalContent}>
+        {children}
+        <button className={cl.modalBtn} onClick={() => setVisible(false)}>
+          Закрыть
+        </button>
+      </div>
     </div>
   );
 }
