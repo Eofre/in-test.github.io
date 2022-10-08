@@ -1,19 +1,17 @@
 import React from "react";
-import cl from "./Modal.module.scss";
+import "./Modal.scss";
 
 function Modal({ children, visible, setVisible }) {
-  const rootClasses = [cl.modal];
-  if (visible) {
-    rootClasses.push(cl.active);
-  }
-
   return (
-    <div className={rootClasses.join(" ")}>
-      <div className={cl.modalContent}>
+    <div
+      className={visible ? "modal active" : "modal"}
+      onClick={() => setVisible(false)}
+    >
+      <div
+        className={visible ? "modal__content active" : "modal__content"}
+        onClick={(e) => e.stopPropagation()}
+      >
         {children}
-        <button className={cl.modalBtn} onClick={() => setVisible(false)}>
-          Закрыть
-        </button>
       </div>
     </div>
   );

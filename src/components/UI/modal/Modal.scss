@@ -1,0 +1,42 @@
+@import "../../../colors.scss";
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.modal__content {
+  padding: 45px;
+  background-color: $color-two;
+  box-shadow: $color-two 0px 0px 10px;
+  border-radius: 10px;
+  width: 40%;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 23px;
+  transform: scale(0.5);
+  transition: all 0.3s;
+}
+
+.modal__content.active {
+  transform: scale(1);
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}

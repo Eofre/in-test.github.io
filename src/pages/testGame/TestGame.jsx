@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./TestGame.scss";
+import closeIcon from "../../assets/image/close.svg";
 
 function TestGame() {
   const [currectAnswers, setCurrectAnswers] = useState(0);
@@ -26,7 +27,20 @@ function TestGame() {
 
   return (
     <>
-      <header className="test-game__top">
+      <header className="header">
+        <div className="header__content">
+          <div>Тест</div>
+          <div className="test-game__progress-question">
+            {`${step + 1} / ${test.questions.length}`}
+            <p>Вопросы</p>
+          </div>
+          <img
+            className="header__icon"
+            src={closeIcon}
+            alt="иконка кнопки выхода"
+            onClick={() => router(-1)}
+          />
+        </div>
         <div className="test-game__progress">
           <div
             className="test-game__progress-bar"
@@ -58,9 +72,6 @@ function TestGame() {
               </ul>
             </div>
           </div>
-          <p className="test-game__progress-question">{`${step + 1}/${
-            test.questions.length
-          }`}</p>
         </section>
       ) : (
         router(`/test/game/result/${test.id}`, {

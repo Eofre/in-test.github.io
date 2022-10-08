@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from "../../components/header/Header.jsx";
 import TestItem from "../../components/testItem/TestItem.jsx";
 
 import "./Tests.scss";
@@ -26,29 +27,32 @@ function Tests({ tests }) {
   }, [searchTerm]);
 
   return (
-    <section className="tests">
-      <div className="conteiner">
-        <div className="tests__inner">
-          <div className="tests__inner-top">
-            <h2 className="tests__title">Тесты</h2>
-            <div className="tests__search">
-              <input
-                type="search"
-                className="tests__search-input"
-                placeholder="Поиск"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              ></input>
+    <>
+      <Header />
+      <section className="tests">
+        <div className="conteiner">
+          <div className="tests__inner">
+            <div className="tests__inner-top">
+              <h2 className="tests__title">Тесты</h2>
+              <div className="tests__search">
+                <input
+                  type="search"
+                  className="tests__search-input"
+                  placeholder="Поиск"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                ></input>
+              </div>
+            </div>
+            <div className="tests__list">
+              {testList.map((test) => (
+                <TestItem key={test.id} test={test} />
+              ))}
             </div>
           </div>
-          <div className="tests__list">
-            {testList.map((test) => (
-              <TestItem key={test.id} test={test} />
-            ))}
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

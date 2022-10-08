@@ -5,8 +5,10 @@
   background-color: $color-one;
   margin: 15px 0px;
   border-radius: 10px;
+  color: $color-description;
 
   &__input {
+    color: $color-description;
     padding: 15px;
     background-color: $color-three;
     width: 94%;
@@ -15,6 +17,7 @@
     margin-left: 10px;
 
     &-question {
+      color: $color-description;
       background-color: $color-three;
       border-radius: 7px;
       padding: 15px;
@@ -43,5 +46,6 @@
   }
 
   &__answers {
+    margin: 7px 0px;
   }
 }

@@ -31,7 +31,7 @@ function Question({ addQuestion, removeQuestion, id }) {
         placeholder="Вопрос"
       />
       <p>Поставьте галочку напротив верного ответа</p>
-      <div className="answers">
+      <div className="question__answers">
         <div>
           <input
             type="text"

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Header from "../../components/header/Header";
 import "./TestHome.scss";
 
 function TestHome() {
@@ -10,24 +11,27 @@ function TestHome() {
   console.log(test);
 
   return (
-    <section className="test-home">
-      <div className="conteiner">
-        <div className="test-home__inner">
-          <img src={test.img} className="test-home__img"></img>
-          <h2 className="test-home__title">{test.title}</h2>
-          <p className="test-home__description">{test.description}</p>
-          <p className="test-home__numbers-questions-text">
-            Количество вопросов: {test.questions.length}
-          </p>
-          <button
-            onClick={() => router(`/test/game/${test.id}`, { state: test })}
-            className="test-home__btn"
-          >
-            Начать
-          </button>
+    <>
+      <Header />
+      <section className="test-home">
+        <div className="conteiner">
+          <div className="test-home__inner">
+            <img src={test.img} className="test-home__img"></img>
+            <h2 className="test-home__title">{test.title}</h2>
+            <p className="test-home__description">{test.description}</p>
+            <p className="test-home__numbers-questions-text">
+              Количество вопросов: {test.questions.length}
+            </p>
+            <button
+              onClick={() => router(`/test/game/${test.id}`, { state: test })}
+              className="test-home__btn"
+            >
+              Начать
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
