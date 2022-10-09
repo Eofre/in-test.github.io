@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/educational-portal.github.io/static/css/main.832d2d47.css",
-    "main.js": "/educational-portal.github.io/static/js/main.65c56a82.js",
+    "main.js": "/educational-portal.github.io/static/js/main.5eb863c8.js",
     "static/js/787.a430bb30.chunk.js": "/educational-portal.github.io/static/js/787.a430bb30.chunk.js",
     "static/media/test-result.svg": "/educational-portal.github.io/static/media/test-result.db7b3a5b70b8e613096a0c628dd45ad8.svg",
     "index.html": "/educational-portal.github.io/index.html",
     "static/media/close.svg": "/educational-portal.github.io/static/media/close.16ee77fa1dabd13d77e0f8c21166234f.svg",
     "main.832d2d47.css.map": "/educational-portal.github.io/static/css/main.832d2d47.css.map",
-    "main.65c56a82.js.map": "/educational-portal.github.io/static/js/main.65c56a82.js.map",
+    "main.5eb863c8.js.map": "/educational-portal.github.io/static/js/main.5eb863c8.js.map",
     "787.a430bb30.chunk.js.map": "/educational-portal.github.io/static/js/787.a430bb30.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.832d2d47.css",
-    "static/js/main.65c56a82.js"
+    "static/js/main.5eb863c8.js"
   ]
 }
