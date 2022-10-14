@@ -21,7 +21,7 @@ function TestResult() {
       : scores >= 60
       ? `3 (удовлетворительно)`
       : `2 (неудовлетворительно)`;
-
+  console.log(test);
   return (
     <section>
       <div className="test-result">
@@ -53,7 +53,7 @@ function TestResult() {
           {questions.map((item, itemId) => (
             <div className="test-result__answer" key={item.question}>
               <h3 className="test-result__answer-question">{item.question}</h3>
-              {answersId[itemId] === item.currectAnswer ? (
+              {answersId[itemId] == item.currectAnswer ? (
                 <p
                   style={{
                     color: "#3cff00",
@@ -75,7 +75,7 @@ function TestResult() {
                 </p>
               )}
               {item.answers.map((answer, index) =>
-                index === item.currectAnswer ? (
+                index == item.currectAnswer ? (
                   <p
                     className="test-result__answer-value"
                     style={{

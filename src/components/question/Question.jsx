@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import Answers from "../answers/Answers";
 import "./Question.scss";
 
-function Question({ addQuestion, removeQuestion, id }) {
+function Question({ addQuestion, id }) {
   const [answer1, setAnswer1] = useState("");
   const [answer2, setAnswer2] = useState("");
   const [answer3, setAnswer3] = useState("");
@@ -14,11 +15,16 @@ function Question({ addQuestion, removeQuestion, id }) {
     currectAnswer: "",
   });
 
-  function saveQuestion() {
+  function saveQuestion(e) {
+    e.preventDefault();
     let tempObjectQuestion = question;
     tempObjectQuestion.answers = [answer1, answer2, answer3, answer4];
     setSaveStatus(true);
     addQuestion(tempObjectQuestion);
+    console.log(question);
+  }
+  function onChangeRadio(e) {
+    setQuestion({ ...question, currectAnswer: e.target.value });
   }
 
   return (
@@ -31,98 +37,24 @@ function Question({ addQuestion, removeQuestion, id }) {
         placeholder="Вопрос"
       />
       <p>Поставьте галочку напротив верного ответа</p>
-      <div className="question__answers">
-        <div>
-          <input
-            type="text"
-            value={answer1}
-            onChange={(e) => setAnswer1(e.target.value)}
-            placeholder="Ответ"
-            className="question__input"
-          />
-          <input
-            className="question__radio"
-            name={id}
-            type="radio"
-            value={0}
-            onChange={(e) =>
-              setQuestion({
-                ...question,
-                currectAnswer: Number(e.target.value),
-              })
-            }
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            value={answer2}
-            onChange={(e) => setAnswer2(e.target.value)}
-            placeholder="Ответ"
-            className="question__input"
-          />
-          <input
-            className="question__radio"
-            name={id}
-            type="radio"
-            value={1}
-            onChange={(e) =>
-              setQuestion({
-                ...question,
-                currectAnswer: Number(e.target.value),
-              })
-            }
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            value={answer3}
-            onChange={(e) => setAnswer3(e.target.value)}
-            placeholder="Ответ"
-            className="question__input"
-          />
-          <input
-            className="question__radio"
-            name={id}
-            type="radio"
-            value={2}
-            onChange={(e) =>
-              setQuestion({
-                ...question,
-                currectAnswer: Number(e.target.value),
-              })
-            }
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            value={answer4}
-            onChange={(e) => setAnswer4(e.target.value)}
-            placeholder="Ответ"
-            className="question__input"
-          />
-          <input
-            className="question__radio"
-            name={id}
-            type="radio"
-            value={3}
-            onChange={(e) =>
-              setQuestion({
-                ...question,
-                currectAnswer: Number(e.target.value),
-              })
-            }
-          />
-        </div>
-      </div>
+      <Answers
+        answer1={answer1}
+        answer2={answer2}
+        answer3={answer3}
+        answer4={answer4}
+        setAnswer1={setAnswer1}
+        setAnswer2={setAnswer2}
+        setAnswer3={setAnswer3}
+        setAnswer4={setAnswer4}
+        onChangeRadio={onChangeRadio}
+        id={id}
+      />
       {saveStatus ? (
         <button className="question__btn" disabled>
           Сохранить
         </button>
       ) : (
-        <button className="question__btn" onClick={saveQuestion}>
+        <button className="question__btn" onClick={(e) => saveQuestion(e)}>
           Сохранить
         </button>
       )}
