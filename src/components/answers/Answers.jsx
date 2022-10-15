@@ -1,48 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Answer from "../answer/Answer";
+import cl from "./Answers.module.scss";
 
-function Answers({
-  answer1,
-  answer2,
-  answer3,
-  answer4,
-  setAnswer1,
-  setAnswer2,
-  setAnswer3,
-  setAnswer4,
-  id,
-  onChangeRadio,
-}) {
+function Answers({ answers, setAnswers, id, onChangeRadio }) {
+  let copy = Object.assign([], answers);
+  function changeAnswer(e, index) {
+    copy[index] = e.target.value;
+    setAnswers(copy);
+  }
+  function addNewAnswer(e) {
+    e.preventDefault();
+    copy.push("");
+    setAnswers(copy);
+  }
+  const removeAnswer = (answer) => {
+    setAnswers(answers.filter((a) => a !== answer));
+  };
   return (
     <div>
-      <Answer
-        nameRadio={id}
-        valueRadio={0}
-        value={answer1}
-        onChangeRadio={onChangeRadio}
-        onChange={(e) => setAnswer1(e.target.value)}
-      />
-      <Answer
-        nameRadio={id}
-        valueRadio={1}
-        value={answer2}
-        onChangeRadio={onChangeRadio}
-        onChange={(e) => setAnswer2(e.target.value)}
-      />
-      <Answer
-        nameRadio={id}
-        valueRadio={2}
-        value={answer3}
-        onChangeRadio={onChangeRadio}
-        onChange={(e) => setAnswer3(e.target.value)}
-      />
-      <Answer
-        nameRadio={id}
-        valueRadio={3}
-        value={answer4}
-        onChangeRadio={onChangeRadio}
-        onChange={(e) => setAnswer4(e.target.value)}
-      />
+      {answers.map((item, index) => (
+        <Answer
+          key={index}
+          nameRadio={id}
+          valueRadio={index}
+          onChangeRadio={onChangeRadio}
+          value={copy[index]}
+          onChange={(e) => changeAnswer(e, index)}
+          placeholder={`Ответ № ${index + 1}`}
+          removeAnswer={removeAnswer}
+        />
+      ))}
+      <button className={cl.btn} onClick={(e) => addNewAnswer(e)}>
+        Добавить ответ
+      </button>
     </div>
   );
 }

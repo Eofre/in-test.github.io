@@ -27,14 +27,7 @@ function CreateTest({ addTest }) {
 
   const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   for (let i = 0; i < numberOfQuestions; i++) {
-    arrayQuestions.push(
-      <Question
-        key={i}
-        id={i}
-        addQuestion={addQuestion}
-        removeQuestion={removeQuestion}
-      />
-    );
+    arrayQuestions.push(<Question key={i} id={i} addQuestion={addQuestion} />);
   }
 
   function addNewQuestion(e) {

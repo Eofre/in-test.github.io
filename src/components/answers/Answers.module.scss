@@ -1,0 +1,10 @@
+@import "../../colors.scss";
+
+.btn {
+  padding: 10px 15px;
+  margin-top: 7px;
+  width: 100%;
+  background-color: $color-two;
+  border-radius: 7px;
+  box-shadow: $color-two 0px 0px 3px;
+}

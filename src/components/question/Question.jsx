@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Answers from "../answers/Answers";
 import "./Question.scss";
 
 function Question({ addQuestion, id }) {
-  const [answer1, setAnswer1] = useState("");
-  const [answer2, setAnswer2] = useState("");
-  const [answer3, setAnswer3] = useState("");
-  const [answer4, setAnswer4] = useState("");
+  const [answers, setAnswers] = useState(["", ""]);
   const [saveStatus, setSaveStatus] = useState(false);
   const [question, setQuestion] = useState({
     id: id,
@@ -18,7 +15,7 @@ function Question({ addQuestion, id }) {
   function saveQuestion(e) {
     e.preventDefault();
     let tempObjectQuestion = question;
-    tempObjectQuestion.answers = [answer1, answer2, answer3, answer4];
+    tempObjectQuestion.answers = answers;
     setSaveStatus(true);
     addQuestion(tempObjectQuestion);
     console.log(question);
@@ -38,14 +35,8 @@ function Question({ addQuestion, id }) {
       />
       <p>Поставьте галочку напротив верного ответа</p>
       <Answers
-        answer1={answer1}
-        answer2={answer2}
-        answer3={answer3}
-        answer4={answer4}
-        setAnswer1={setAnswer1}
-        setAnswer2={setAnswer2}
-        setAnswer3={setAnswer3}
-        setAnswer4={setAnswer4}
+        answers={answers}
+        setAnswers={setAnswers}
         onChangeRadio={onChangeRadio}
         id={id}
       />
