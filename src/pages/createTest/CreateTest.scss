@@ -26,6 +26,11 @@
       margin-top: 10px;
     }
   }
+
+  &__textarea {
+    resize: none;
+    height: 150px;
+  }
   &__question {
     margin-top: 35px;
   }

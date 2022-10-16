@@ -4,7 +4,7 @@ import cl from "./Answer.module.scss";
 function Answer({
   removeAnswer,
   valueRadio,
-  onChangeRadio,
+  changeCurrectAnswer,
   nameRadio,
   ...props
 }) {
@@ -12,10 +12,11 @@ function Answer({
     <div>
       <input className={cl.answer} type="text" {...props} />
       <input
+        className={cl.radio}
         type="radio"
         name={nameRadio}
         value={valueRadio}
-        onChange={(e) => onChangeRadio(e)}
+        onChange={(e) => changeCurrectAnswer(e, nameRadio)}
       />
     </div>
   );

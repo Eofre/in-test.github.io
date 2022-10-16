@@ -2,20 +2,13 @@ import React, { useEffect, useState } from "react";
 import Answer from "../answer/Answer";
 import cl from "./Answers.module.scss";
 
-function Answers({ answers, setAnswers, id, onChangeRadio }) {
-  let copy = Object.assign([], answers);
-  function changeAnswer(e, index) {
-    copy[index] = e.target.value;
-    setAnswers(copy);
-  }
-  function addNewAnswer(e) {
-    e.preventDefault();
-    copy.push("");
-    setAnswers(copy);
-  }
-  const removeAnswer = (answer) => {
-    setAnswers(answers.filter((a) => a !== answer));
-  };
+function Answers({
+  id,
+  changeCurrectAnswer,
+  changeAnswer,
+  answers,
+  addAnswer,
+}) {
   return (
     <div>
       {answers.map((item, index) => (
@@ -23,14 +16,13 @@ function Answers({ answers, setAnswers, id, onChangeRadio }) {
           key={index}
           nameRadio={id}
           valueRadio={index}
-          onChangeRadio={onChangeRadio}
-          value={copy[index]}
-          onChange={(e) => changeAnswer(e, index)}
+          changeCurrectAnswer={changeCurrectAnswer}
+          value={answers[index]}
+          onChange={(e) => changeAnswer(id, index, e)}
           placeholder={`Ответ № ${index + 1}`}
-          removeAnswer={removeAnswer}
         />
       ))}
-      <button className={cl.btn} onClick={(e) => addNewAnswer(e)}>
+      <button className={cl.btn} onClick={(e) => addAnswer(e, id)}>
         Добавить ответ
       </button>
     </div>
