@@ -5,7 +5,9 @@ import Modal from "../../components/UI/modal/Modal";
 import "./CreateTest.scss";
 
 function CreateTest({ addTest }) {
+  const fileReader = new FileReader();
   const [modal, setModal] = useState(false);
+  const [statusBtnImg, setStatusBtnImg] = useState(true);
   const [questions, setQuestions] = useState([
     {
       id: 0,
@@ -36,6 +38,14 @@ function CreateTest({ addTest }) {
       img: "",
     });
     setQuestions(copyQuestions);
+  }
+  fileReader.onloadend = () => {
+    setTest({ ...test, img: fileReader.result });
+  };
+  function onImgSelected(e) {
+    e.preventDefault();
+    const file = e.target.files[0];
+    fileReader.readAsDataURL(file);
   }
 
   function addAnswer(e, id) {
@@ -87,6 +97,8 @@ function CreateTest({ addTest }) {
     setTest({ ...test, questions: questions });
   }, [questions]);
 
+  console.log(test);
+
   return (
     <>
       <Header />
@@ -125,16 +137,46 @@ function CreateTest({ addTest }) {
                     setTest({ ...test, description: e.target.value })
                   }
                 />
-                <input
-                  value={test.img}
-                  type="text"
-                  className="create-test__input"
-                  placeholder="Ссылка на изображение"
-                  onChange={(e) => setTest({ ...test, img: e.target.value })}
-                />
+                <div>
+                  <div className="create-test__nav">
+                    <button
+                      className="create-test__nav-btn"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setStatusBtnImg(true);
+                        setTest({ ...test, img: "" });
+                      }}
+                    >
+                      Изображение по ссылке
+                    </button>
+                    <button
+                      className="create-test__nav-btn"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setStatusBtnImg(false);
+                        setTest({ ...test, img: "" });
+                      }}
+                    >
+                      Загрузить изображение с компьютера
+                    </button>
+                  </div>
+                  {statusBtnImg ? (
+                    <input
+                      value={test.img}
+                      type="text"
+                      className="create-test__input"
+                      placeholder="Ссылка на изображение"
+                      onChange={(e) =>
+                        setTest({ ...test, img: e.target.value })
+                      }
+                    />
+                  ) : (
+                    <input type="file" onChange={(e) => onImgSelected(e)} />
+                  )}
+                </div>
               </div>
               <div className="create-test__questions create-test__information">
-                <h3>Вопросы (пссс обязательно сохраните вопрос)</h3>
+                <h3>Вопросы</h3>
                 {questions.map((item, index) => (
                   <Question
                     key={item.id}

@@ -14,6 +14,23 @@
       margin-bottom: 20px;
     }
   }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+
+    &-btn {
+      background-color: $color-two;
+      box-shadow: $color-two 0px 0px 3px;
+      padding: 7px;
+      border-radius: 5px;
+      & + & {
+        margin-left: 7px;
+      }
+    }
+  }
   &__input {
     width: 100%;
     height: 45px;
