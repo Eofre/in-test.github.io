@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import Question from "../../components/question/Question";
 import Modal from "../../components/UI/modal/Modal";
+import noPhoto from "../../assets/image/no-photo.jpg";
 import "./CreateTest.scss";
 
 function CreateTest({ addTest }) {
@@ -137,7 +138,7 @@ function CreateTest({ addTest }) {
                     setTest({ ...test, description: e.target.value })
                   }
                 />
-                <div>
+                <div className="create-test__picture">
                   <div className="create-test__nav">
                     <button
                       className="create-test__nav-btn"
@@ -160,6 +161,11 @@ function CreateTest({ addTest }) {
                       Загрузить изображение с компьютера
                     </button>
                   </div>
+                  <img
+                    className="create-test__img"
+                    src={test.img === "" ? noPhoto : test.img}
+                    alt=""
+                  />
                   {statusBtnImg ? (
                     <input
                       value={test.img}

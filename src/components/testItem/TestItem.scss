@@ -3,7 +3,7 @@
 .test-item {
   padding-bottom: 10px;
   border-radius: 20px;
-  width: 335px;
+  width: 350px;
   // height: 520px;
   background-color: $color-one;
   display: flex;
@@ -16,7 +16,7 @@
   margin: 13px 5px;
 
   &__img {
-    width: 100%;
+    width: 350px;
     height: 230px;
     border-radius: 20px 20px 0px 0px;
   }

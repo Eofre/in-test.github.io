@@ -3,7 +3,22 @@
 .create-test {
   &__form {
     margin: 35px auto;
-    width: 75%;
+    width: 87%;
+  }
+
+  &__picture {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    width: 350px;
+    height: 230px;
+    border-radius: 7px;
+    margin: 10px 0px;
   }
   &__information {
     & + & {

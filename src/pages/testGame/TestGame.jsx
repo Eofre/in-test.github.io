@@ -55,7 +55,11 @@ function TestGame() {
           <div className="test-game__inner">
             <div className="test-game__inner-left">
               <h3 className="test-game__question">{question.question}</h3>
-              <img src={question.img} alt="фото вопроса" />
+              <img
+                className="test-game__question-img"
+                src={question.img}
+                alt="фото вопроса"
+              />
             </div>
             <div className="test-game__inner-right">
               <h3>Выберите один вариант ответа:</h3>

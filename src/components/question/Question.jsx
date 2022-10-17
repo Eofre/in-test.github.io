@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Answers from "../answers/Answers";
 import "./Question.scss";
 import deleteSvg from "../../assets/image/delete.svg";
+import noPhoto from "../../assets/image/no-photo.jpg";
 
 function Question({
   nameQuestion,
@@ -22,7 +23,7 @@ function Question({
   return (
     <div className="question">
       <div className="question__picture">
-        <img src={imgQuestion} alt="" />
+        <img src={imgQuestion === "" ? noPhoto : imgQuestion} alt="" />
         <input
           value={imgQuestion}
           onChange={(e) => changeImgQuestion(e, id)}
