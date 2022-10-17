@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/in-test.github.io/static/css/main.084f8570.css",
-    "main.js": "/in-test.github.io/static/js/main.1bf6b345.js",
+    "main.css": "/in-test.github.io/static/css/main.82d380ed.css",
+    "main.js": "/in-test.github.io/static/js/main.deeb2992.js",
     "static/js/787.36d880cc.chunk.js": "/in-test.github.io/static/js/787.36d880cc.chunk.js",
     "static/media/test-result.svg": "/in-test.github.io/static/media/test-result.db7b3a5b70b8e613096a0c628dd45ad8.svg",
     "index.html": "/in-test.github.io/index.html",
     "static/media/delete.svg": "/in-test.github.io/static/media/delete.782fbc63acb401509433e8161bf479ae.svg",
     "static/media/close.svg": "/in-test.github.io/static/media/close.16ee77fa1dabd13d77e0f8c21166234f.svg",
-    "main.084f8570.css.map": "/in-test.github.io/static/css/main.084f8570.css.map",
-    "main.1bf6b345.js.map": "/in-test.github.io/static/js/main.1bf6b345.js.map",
+    "main.82d380ed.css.map": "/in-test.github.io/static/css/main.82d380ed.css.map",
+    "main.deeb2992.js.map": "/in-test.github.io/static/js/main.deeb2992.js.map",
     "787.36d880cc.chunk.js.map": "/in-test.github.io/static/js/787.36d880cc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.084f8570.css",
-    "static/js/main.1bf6b345.js"
+    "static/css/main.82d380ed.css",
+    "static/js/main.deeb2992.js"
   ]
 }
