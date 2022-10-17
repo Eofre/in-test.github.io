@@ -51,13 +51,23 @@ function CreateTest({ addTest }) {
     console.log(questions);
   }
 
-  function changeAnswers(answers, id) {
-    copyQuestions[id].answers = answers;
+  function changeAnswer(id, idAns, e) {
+    copyQuestions[id].answers[idAns] = e.target.value;
     setQuestions(copyQuestions);
   }
 
-  function changeAnswer(id, idAns, e) {
-    copyQuestions[id].answers[idAns] = e.target.value;
+  function removeQuestion(e, id) {
+    e.preventDefault();
+    copyQuestions = copyQuestions.filter((item, itemIndex) => itemIndex !== id);
+    setQuestions(copyQuestions);
+    console.log(questions);
+  }
+
+  function removeAnswer(e, id, idAns) {
+    e.preventDefault();
+    copyQuestions[id].answers = copyQuestions[id].answers.filter(
+      (item, itemIndex) => itemIndex !== idAns
+    );
     setQuestions(copyQuestions);
   }
 
@@ -124,6 +134,8 @@ function CreateTest({ addTest }) {
                     answers={copyQuestions[index].answers}
                     addAnswer={addAnswer}
                     placeholder={`Вопрос № ${index + 1}`}
+                    removeAnswer={removeAnswer}
+                    removeQuestion={removeQuestion}
                   />
                 ))}
                 <button

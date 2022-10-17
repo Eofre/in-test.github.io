@@ -8,6 +8,7 @@ function Answers({
   changeAnswer,
   answers,
   addAnswer,
+  removeAnswer,
 }) {
   return (
     <div>
@@ -20,6 +21,7 @@ function Answers({
           value={answers[index]}
           onChange={(e) => changeAnswer(id, index, e)}
           placeholder={`Ответ № ${index + 1}`}
+          removeAnswer={removeAnswer}
         />
       ))}
       <button className={cl.btn} onClick={(e) => addAnswer(e, id)}>

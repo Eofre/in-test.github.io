@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Answers from "../answers/Answers";
 import "./Question.scss";
+import deleteSvg from "../../assets/image/delete.svg";
 
 function Question({
   nameQuestion,
@@ -10,17 +11,27 @@ function Question({
   changeAnswer,
   answers,
   addAnswer,
+  removeAnswer,
+  removeQuestion,
   ...props
 }) {
   return (
     <div className="question">
-      <input
-        value={nameQuestion}
-        onChange={(e) => changeNameQuestion(e, id)}
-        type="text"
-        className="question__input-question"
-        {...props}
-      />
+      <div className="question__top">
+        <input
+          value={nameQuestion}
+          onChange={(e) => changeNameQuestion(e, id)}
+          type="text"
+          className="question__input-question"
+          {...props}
+        />
+        <img
+          className="question__img"
+          src={deleteSvg}
+          alt=""
+          onClick={(e) => removeQuestion(e, id)}
+        />
+      </div>
       <p>Поставьте галочку напротив верного ответа</p>
       <Answers
         changeCurrectAnswer={changeCurrectAnswer}
@@ -28,6 +39,7 @@ function Question({
         changeAnswer={changeAnswer}
         answers={answers}
         addAnswer={addAnswer}
+        removeAnswer={removeAnswer}
       />
     </div>
   );

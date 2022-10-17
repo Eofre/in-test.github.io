@@ -7,6 +7,12 @@
   border-radius: 10px;
   color: $color-description;
 
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &__input {
     color: $color-description;
     padding: 15px;
@@ -38,6 +44,15 @@
     background-color: $color-two;
     border-radius: 7px;
     box-shadow: $color-two 0px 0px 3px;
+  }
+
+  &__img {
+    max-width: 53px;
+    cursor: pointer;
+    padding: 15px;
+    background-color: $color-three;
+    border-radius: 100%;
+    margin-left: 7px;
   }
 
   p {
