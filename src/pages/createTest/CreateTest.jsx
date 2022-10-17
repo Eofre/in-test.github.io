@@ -12,6 +12,8 @@ function CreateTest({ addTest }) {
       question: "",
       answers: [""],
       currectAnswer: "",
+      explanation: "",
+      img: "",
     },
   ]);
   const [test, setTest] = useState({
@@ -30,6 +32,8 @@ function CreateTest({ addTest }) {
       question: "",
       answers: [""],
       currectAnswer: "",
+      explanation: "",
+      img: "",
     });
     setQuestions(copyQuestions);
   }
@@ -48,7 +52,6 @@ function CreateTest({ addTest }) {
   function changeNameQuestion(e, id) {
     copyQuestions[id].question = e.target.value;
     setQuestions(copyQuestions);
-    console.log(questions);
   }
 
   function changeAnswer(id, idAns, e) {
@@ -56,11 +59,20 @@ function CreateTest({ addTest }) {
     setQuestions(copyQuestions);
   }
 
+  function changeExplanation(e, id) {
+    copyQuestions[id].explanation = e.target.value;
+    setQuestions(copyQuestions);
+  }
+
+  function changeImgQuestion(e, id) {
+    copyQuestions[id].img = e.target.value;
+    setQuestions(copyQuestions);
+  }
+
   function removeQuestion(e, id) {
     e.preventDefault();
     copyQuestions = copyQuestions.filter((item, itemIndex) => itemIndex !== id);
     setQuestions(copyQuestions);
-    console.log(questions);
   }
 
   function removeAnswer(e, id, idAns) {
@@ -136,6 +148,10 @@ function CreateTest({ addTest }) {
                     placeholder={`Вопрос № ${index + 1}`}
                     removeAnswer={removeAnswer}
                     removeQuestion={removeQuestion}
+                    changeExplanation={changeExplanation}
+                    explanation={copyQuestions[index].explanation}
+                    changeImgQuestion={changeImgQuestion}
+                    imgQuestion={copyQuestions[index].img}
                   />
                 ))}
                 <button

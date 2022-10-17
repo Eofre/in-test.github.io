@@ -76,6 +76,15 @@ $widht: 650px;
         margin-top: 7px;
       }
     }
+    &-explanation {
+      margin-top: 20px;
+      h4 {
+        color: $color-two;
+      }
+      p {
+        margin-top: 7px;
+      }
+    }
   }
 
   &-question {

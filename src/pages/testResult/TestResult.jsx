@@ -106,6 +106,10 @@ function TestResult() {
                   </p>
                 )
               )}
+              <div className="test-result__answer-explanation">
+                <h4>Объяснение:</h4>
+                <p>{item.explanation}</p>
+              </div>
             </div>
           ))}
         </div>
