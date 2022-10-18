@@ -3,7 +3,11 @@
 .create-test {
   &__form {
     margin: 35px auto;
-    width: 87%;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   &__picture {
@@ -20,40 +24,34 @@
     border-radius: 7px;
     margin: 10px 0px;
   }
+
+  &__icon {
+    width: 350px;
+    height: 230px;
+    border-radius: 7px;
+    margin: 10px 0px;
+    background-color: $color-one;
+    padding: 80px 140px;
+  }
   &__information {
-    & + & {
-      margin-top: 30px;
-    }
+    width: 60%;
 
     h3 {
       margin-bottom: 20px;
     }
   }
 
-  &__nav {
+  &__label {
+    margin-bottom: 20px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 10px 0px;
-
-    &-btn {
-      background-color: $color-two;
-      box-shadow: $color-two 0px 0px 3px;
-      padding: 7px;
-      border-radius: 5px;
-      & + & {
-        margin-left: 7px;
-      }
-    }
   }
   &__input {
     width: 100%;
     height: 45px;
     border-radius: 7px;
-    background-color: transparent;
-    border: 2px $color-two solid;
+    background-color: $color-one;
     padding: 10px;
-    color: $color-two;
+    color: $color-description;
     & + & {
       margin-top: 10px;
     }
@@ -63,6 +61,14 @@
     resize: none;
     height: 150px;
   }
+
+  &__file {
+    cursor: pointer;
+    &-input {
+      display: none;
+    }
+  }
+
   &__question {
     margin-top: 35px;
   }
@@ -74,9 +80,9 @@
     padding: 10px 15px;
     margin-top: 7px;
     width: 100%;
-    background-color: $color-two;
+    background-color: $color-one;
+    color: $color-description;
     border-radius: 7px;
-    box-shadow: $color-two 0px 0px 3px;
 
     &-modal {
       margin-top: 10%;

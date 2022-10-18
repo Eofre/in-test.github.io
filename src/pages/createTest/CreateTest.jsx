@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import Question from "../../components/question/Question";
 import Modal from "../../components/UI/modal/Modal";
-import noPhoto from "../../assets/image/no-photo.jpg";
+import noPhoto from "../../assets/image/camera.svg";
 import "./CreateTest.scss";
 
 function CreateTest({ addTest }) {
-  const fileReader = new FileReader();
+  const fileReaderTest = new FileReader();
+
   const [modal, setModal] = useState(false);
+  const [modalWarning, setModalWarning] = useState("A");
   const [statusBtnImg, setStatusBtnImg] = useState(true);
   const [questions, setQuestions] = useState([
     {
@@ -40,13 +42,35 @@ function CreateTest({ addTest }) {
     });
     setQuestions(copyQuestions);
   }
-  fileReader.onloadend = () => {
-    setTest({ ...test, img: fileReader.result });
+  function validationCheckTestForm() {
+    if (test.title !== "" && test.description !== "" && test.img !== "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function createTest(e, test) {
+    e.preventDefault();
+    if (validationCheckTestForm()) {
+      addTest(test);
+      setModal(true);
+      setModalWarning("A");
+      return true;
+    } else {
+      setModalWarning("B");
+      setModal(true);
+      return false;
+    }
+  }
+
+  fileReaderTest.onloadend = () => {
+    setTest({ ...test, img: fileReaderTest.result });
   };
-  function onImgSelected(e) {
+  function onImgSelectedTest(e) {
     e.preventDefault();
     const file = e.target.files[0];
-    fileReader.readAsDataURL(file);
+    fileReaderTest.readAsDataURL(file);
   }
 
   function addAnswer(e, id) {
@@ -75,11 +99,6 @@ function CreateTest({ addTest }) {
     setQuestions(copyQuestions);
   }
 
-  function changeImgQuestion(e, id) {
-    copyQuestions[id].img = e.target.value;
-    setQuestions(copyQuestions);
-  }
-
   function removeQuestion(e, id) {
     e.preventDefault();
     copyQuestions = copyQuestions.filter((item, itemIndex) => itemIndex !== id);
@@ -94,6 +113,11 @@ function CreateTest({ addTest }) {
     setQuestions(copyQuestions);
   }
 
+  function updateQuestion(id, value) {
+    copyQuestions[id].img = value;
+    setQuestions(copyQuestions);
+  }
+
   useEffect(() => {
     setTest({ ...test, questions: questions });
   }, [questions]);
@@ -105,16 +129,33 @@ function CreateTest({ addTest }) {
       <Header />
       <section className="create-test">
         <Modal visible={modal} setVisible={setModal}>
-          Тест успешно создан!
-          <button
-            className="create-test__btn-modal"
-            onClick={(e) => {
-              e.preventDefault();
-              setModal(false);
-            }}
-          >
-            Ок
-          </button>
+          {modalWarning === "A" ? (
+            <>
+              Тест успешно создан!
+              <button
+                className="create-test__btn-modal"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setModal(false);
+                }}
+              >
+                Ок
+              </button>
+            </>
+          ) : (
+            <>
+              Заполните все поля!
+              <button
+                className="create-test__btn-modal"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setModal(false);
+                }}
+              >
+                Ок
+              </button>
+            </>
+          )}
         </Modal>
         <div className="conteiner">
           <div className="create-test__inner ">
@@ -122,66 +163,51 @@ function CreateTest({ addTest }) {
             <form className="create-test__form">
               <div className="create-test__information">
                 <h3>Данные теста</h3>
-                <input
-                  value={test.title}
-                  type="text"
-                  className="create-test__input"
-                  placeholder="Название"
-                  onChange={(e) => setTest({ ...test, title: e.target.value })}
-                />
-                <textarea
-                  value={test.description}
-                  type="text"
-                  className="create-test__input create-test__textarea"
-                  placeholder="Описание"
-                  onChange={(e) =>
-                    setTest({ ...test, description: e.target.value })
-                  }
-                />
-                <div className="create-test__picture">
-                  <div className="create-test__nav">
-                    <button
-                      className="create-test__nav-btn"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setStatusBtnImg(true);
-                        setTest({ ...test, img: "" });
-                      }}
-                    >
-                      Изображение по ссылке
-                    </button>
-                    <button
-                      className="create-test__nav-btn"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setStatusBtnImg(false);
-                        setTest({ ...test, img: "" });
-                      }}
-                    >
-                      Загрузить изображение с компьютера
-                    </button>
-                  </div>
-                  <img
-                    className="create-test__img"
-                    src={test.img === "" ? noPhoto : test.img}
-                    alt=""
-                  />
-                  {statusBtnImg ? (
+                <div className="create-test__label">
+                  <label className="create-test__label">
+                    Название
                     <input
-                      value={test.img}
+                      value={test.title}
                       type="text"
                       className="create-test__input"
-                      placeholder="Ссылка на изображение"
+                      placeholder="Например: Тест по русскому языку для детей"
                       onChange={(e) =>
-                        setTest({ ...test, img: e.target.value })
+                        setTest({ ...test, title: e.target.value })
                       }
                     />
-                  ) : (
-                    <input type="file" onChange={(e) => onImgSelected(e)} />
-                  )}
+                  </label>
+                </div>
+                <div className="create-test__label">
+                  <label>
+                    Описание
+                    <textarea
+                      value={test.description}
+                      type="text"
+                      className="create-test__input create-test__textarea"
+                      placeholder="Например: Тест покажет уровень знаний ребенка"
+                      onChange={(e) =>
+                        setTest({ ...test, description: e.target.value })
+                      }
+                    />
+                  </label>
+                </div>
+                <div className="create-test__picture">
+                  <label className="create-test__file">
+                    Иллюстрация для обложки
+                    {test.img === "" ? (
+                      <img className="create-test__icon" src={noPhoto} alt="" />
+                    ) : (
+                      <img className="create-test__img" src={test.img} alt="" />
+                    )}
+                    <input
+                      className="create-test__file-input"
+                      type="file"
+                      onChange={(e) => onImgSelectedTest(e)}
+                    />
+                  </label>
                 </div>
               </div>
-              <div className="create-test__questions create-test__information">
+              <div className="create-test__questions">
                 <h3>Вопросы</h3>
                 {questions.map((item, index) => (
                   <Question
@@ -198,8 +224,8 @@ function CreateTest({ addTest }) {
                     removeQuestion={removeQuestion}
                     changeExplanation={changeExplanation}
                     explanation={copyQuestions[index].explanation}
-                    changeImgQuestion={changeImgQuestion}
                     imgQuestion={copyQuestions[index].img}
+                    updateQuestion={updateQuestion}
                   />
                 ))}
                 <button
@@ -212,9 +238,7 @@ function CreateTest({ addTest }) {
               <button
                 className="create-test__btn"
                 onClick={(e) => {
-                  e.preventDefault();
-                  addTest(test);
-                  setModal(true);
+                  createTest(e, test);
                 }}
               >
                 Создать тест

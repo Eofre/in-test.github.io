@@ -44,40 +44,31 @@
     margin-left: 10px;
   }
 
-  &__btn {
-    padding: 10px 15px;
-    margin-top: 7px;
-    width: 100%;
-    background-color: $color-two;
-    border-radius: 7px;
-    box-shadow: $color-two 0px 0px 3px;
-  }
-
   &__img {
-    max-width: 55px;
+    max-width: 53px;
     cursor: pointer;
     padding: 18px;
     background-color: $color-three;
-    border-radius: 100%;
+    border-radius: 9px;
     margin-left: 7px;
   }
 
   &__picture {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    img {
-      width: 500px;
-      border-radius: 7px;
+    &-input {
+      display: none;
     }
-
-    input {
-      width: 100%;
-      color: $color-description;
-      padding: 15px;
-      background-color: $color-three;
-      margin-top: 12px;
-      border-radius: 7px;
+    &-label {
+      cursor: pointer;
+      &-img {
+        width: 350px;
+        border-radius: 7px;
+      }
+      &-icon {
+        width: 350px;
+        padding: 140px;
+        border: 2px $color-three solid;
+        border-radius: 7px;
+      }
     }
   }
 

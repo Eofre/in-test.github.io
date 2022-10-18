@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Answers from "../answers/Answers";
 import "./Question.scss";
 import deleteSvg from "../../assets/image/delete.svg";
-import noPhoto from "../../assets/image/no-photo.jpg";
+import noPhoto from "../../assets/image/camera.svg";
 
 function Question({
   nameQuestion,
@@ -16,20 +16,44 @@ function Question({
   removeQuestion,
   changeExplanation,
   explanation,
-  changeImgQuestion,
+  updateQuestion,
   imgQuestion,
   ...props
 }) {
+  const fileReaderQuestion = new FileReader();
+  fileReaderQuestion.onloadend = () => {
+    updateQuestion(id, fileReaderQuestion.result);
+  };
+  function onImgSelectedQuestion(e) {
+    e.preventDefault();
+    const file = e.target.files[0];
+    fileReaderQuestion.readAsDataURL(file);
+  }
+
   return (
     <div className="question">
       <div className="question__picture">
-        <img src={imgQuestion === "" ? noPhoto : imgQuestion} alt="" />
-        <input
-          value={imgQuestion}
-          onChange={(e) => changeImgQuestion(e, id)}
-          type="text"
-          placeholder="Ссылка на иллюстрацию вопроса"
-        />
+        <label className="question__picture-label">
+          Иллюстрация
+          {imgQuestion !== "" ? (
+            <img
+              className="question__picture-label-img"
+              src={imgQuestion}
+              alt=""
+            />
+          ) : (
+            <img
+              className="question__picture-label-icon"
+              src={noPhoto}
+              alt=""
+            />
+          )}
+          <input
+            className="question__picture-input"
+            type="file"
+            onChange={(e) => onImgSelectedQuestion(e)}
+          />
+        </label>
       </div>
       <div className="question__right">
         <div className="question__top">
