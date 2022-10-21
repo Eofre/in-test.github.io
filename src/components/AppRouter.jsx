@@ -1,10 +1,11 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Tests from "../pages/tests/Tests";
 import CreateTest from "../pages/createTest/CreateTest";
 import TestHome from "../pages/testHome/TestHome";
 import TestGame from "../pages/testGame/TestGame";
 import TestResult from "../pages/testResult/TestResult";
+import Header from "./header/Header";
 
 function AppRouter({ tests, addTest }) {
   return (

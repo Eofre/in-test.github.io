@@ -1,22 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./TestItem.scss";
+import iconQuestions from "../../assets/image/quiz.svg";
+import cl from "./TestItem.module.scss";
 
 function TestItem({ test }) {
   const router = useNavigate();
   return (
     <div
-      className="test-item"
+      className={cl.testItem}
       onClick={() => router(`/test/${test.id}`, { state: test })}
     >
-      <img src={test.img} alt="Обложка теста" className="test-item__img" />
-      <h4 className="test-item__title">{test.title}</h4>
-      <p className="test-item__description">{test.description}</p>
-      <div className="test-item__inner-bottom">
-        <span className="test-item__date">
-          Кол-во вопросов: {test.questions.length}
-        </span>
-      </div>
+      <img className={cl.testItemImg} src={test.img} alt="Обложка теста"></img>
+      <p className={cl.testItemLength}>
+        <img className={cl.testItemIcon} src={iconQuestions} alt="" />
+        {test.questions.length}
+      </p>
+      <h4 className={cl.testItemTitle}>{test.title}</h4>
+      {/* <p className={cl.testItemDescription}>{test.description}</p>
+      <div>
+        <p>Кол-во вопросов: {test.questions.length}</p>
+      </div> */}
     </div>
   );
 }

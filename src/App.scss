@@ -1,29 +1,5 @@
 .conteiner {
-  max-width: 1400px;
+  max-width: 1420px;
   padding: 0px 10px;
   margin: 0 auto;
-}
-
-/* =================Адаптив================ */
-
-@media screen and (max-width: 1200px) {
-  .container {
-    max-width: 960px;
-  }
-}
-@media screen and (max-width: 992px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    max-width: 540px;
-  }
-}
-@media screen and (max-width: 576px) {
-  .container {
-    max-width: 90%;
-  }
 }

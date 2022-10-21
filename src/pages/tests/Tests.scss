@@ -17,12 +17,22 @@
     align-items: center;
 
     &-input {
-      border-radius: 20px;
-      padding: 7px 15px;
-      background-color: $color-one;
+      padding: 12px 15px;
+      background-color: $color-three;
       width: 100%;
       color: rgb(202, 202, 202);
-      font-size: 20px;
+      font-size: 15px;
+
+      &::-webkit-search-cancel-button {
+        display: block;
+        width: 25px;
+        height: 25px;
+        background-image: url("../../assets/image/close.svg");
+        background-repeat: no-repeat;
+        background-size: 25px;
+        background-position: top left;
+        cursor: pointer;
+      }
     }
   }
 
@@ -31,5 +41,33 @@
     align-items: center;
     align-content: center;
     flex-wrap: wrap;
+    gap: 24px;
+  }
+}
+
+/* =================Адаптив================ */
+
+@media screen and (max-width: 1200px) {
+  .tests {
+    &__list {
+      gap: 7px;
+    }
+    &__search {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 576px) {
+  .tests {
+    &__title {
+      display: none;
+    }
+    &__search {
+      margin-left: 0px;
+    }
   }
 }

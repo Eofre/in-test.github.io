@@ -13,29 +13,9 @@
   }
 
   &__logo {
+    display: flex;
+    align-items: center;
     font-size: 24px;
     font-weight: 700;
-
-    span {
-      background-color: $color-two;
-      padding: 8px 13px;
-      border-radius: 30px;
-    }
-  }
-
-  &__avatar {
-    width: 47px;
-    border-radius: 50%;
-    height: 47px;
-  }
-
-  &__login {
-    background-color: $color-two;
-    padding: 18px;
-    transition: all 0.3s ease;
-
-    &:hover {
-      box-shadow: $color-two 0px 0px 15px;
-    }
   }
 }

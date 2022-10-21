@@ -1,6 +1,9 @@
 @import "../../colors.scss";
 
 .header {
+  position: relative;
+  top: 0;
+  z-index: 99;
   &__content {
     display: flex;
     justify-content: space-between;
