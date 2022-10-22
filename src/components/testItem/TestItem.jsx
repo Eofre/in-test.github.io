@@ -16,10 +16,7 @@ function TestItem({ test }) {
         {test.questions.length}
       </p>
       <h4 className={cl.testItemTitle}>{test.title}</h4>
-      {/* <p className={cl.testItemDescription}>{test.description}</p>
-      <div>
-        <p>Кол-во вопросов: {test.questions.length}</p>
-      </div> */}
+      <p className={cl.testItemDescription}>{test.description}</p>
     </div>
   );
 }

@@ -3,14 +3,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./TestGame.scss";
 import closeIcon from "../../assets/image/close.svg";
 
-function TestGame() {
+function TestGame({ setPathname, setPathnameId }) {
   const [currectAnswers, setCurrectAnswers] = useState(0);
   const [answersId, setAnswersId] = useState([]);
   const [progress, setProgress] = useState(1);
   const [step, setStep] = useState(0);
   const router = useNavigate();
   const location = useLocation();
+  setPathname(location.pathname);
+  console.log(location.pathname);
   const test = location.state;
+  setPathnameId(test.id);
   const question = test.questions[step];
   function chooseAnAnswer(index) {
     if (question.currectAnswer == index) {
@@ -27,7 +30,7 @@ function TestGame() {
 
   return (
     <>
-      <header className="header">
+      <div className="header">
         <div className="header__content">
           <div>Тест</div>
           <div className="test-game__progress-question">
@@ -49,7 +52,7 @@ function TestGame() {
             }}
           ></div>
         </div>
-      </header>
+      </div>
       {step != test.questions.length ? (
         <section className="test-game">
           <div className="test-game__inner">

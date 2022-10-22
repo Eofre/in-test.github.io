@@ -3,16 +3,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header";
 import "./TestHome.scss";
 
-function TestHome() {
+function TestHome({ setPathname }) {
   const router = useNavigate();
   const location = useLocation();
   const test = location.state;
-
-  console.log(test);
+  console.log(location);
+  setPathname(location.pathname);
 
   return (
     <>
-      <Header />
       <section className="test-home">
         <div className="conteiner">
           <div className="test-home__inner">

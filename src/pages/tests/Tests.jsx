@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "../../components/header/Header.jsx";
 import TestItem from "../../components/testItem/TestItem.jsx";
 
@@ -13,9 +14,10 @@ const filterTests = (searchText, listOfTests) => {
   );
 };
 
-function Tests({ tests }) {
-  const [searchTerm, setSearchTerm] = useState("");
+function Tests({ tests, setPathname, searchTerm }) {
   const [testList, setTestList] = useState(tests);
+  const location = useLocation();
+  setPathname(location.pathname);
 
   useEffect(() => {
     const debounce = setTimeout(() => {
@@ -28,7 +30,7 @@ function Tests({ tests }) {
 
   return (
     <>
-      <Header>
+      {/* <Header>
         <div className="tests__search">
           <input
             type="search"
@@ -38,7 +40,7 @@ function Tests({ tests }) {
             onChange={(e) => setSearchTerm(e.target.value)}
           ></input>
         </div>
-      </Header>
+      </Header> */}
       <section className="tests">
         <div className="conteiner">
           <div className="tests__inner">

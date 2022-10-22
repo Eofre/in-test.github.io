@@ -3,18 +3,19 @@
 .inner {
   display: flex;
   align-items: center;
+  align-content: center;
   justify-content: space-between;
   margin-top: 7px;
 }
 
 .answer {
-  color: $color-description;
-  padding: 15px;
+  width: 85%;
+  padding: 12px 20px;
   background-color: $color-three;
-  width: 96%;
-  border-radius: 7px;
-  transition: all 0.5s;
-  margin: 0px 20px;
+  border-radius: 2px;
+
+  color: $color-description;
+  font-size: 18px;
 }
 
 .radio {
@@ -22,9 +23,13 @@
 }
 
 .imgBtn {
-  max-width: 53px;
-  cursor: pointer;
-  padding: 18px;
+  max-width: 42px;
+  border-radius: 2px;
+  padding: 10px;
   background-color: $color-three;
-  border-radius: 9px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale3d(1.14, 1.14, 1.14);
+  }
 }
