@@ -44,7 +44,7 @@ function Question({
       <div className={cl.questionInner}>
         <div className={cl.questionLeft}>
           <label style={{ cursor: "pointer" }} className={cl.questionLabel}>
-            Иллюстрация
+            Картинка
             {imgQuestion !== "" ? (
               <img className={cl.questionImage} src={imgQuestion} alt="" />
             ) : (

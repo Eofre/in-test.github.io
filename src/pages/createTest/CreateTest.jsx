@@ -192,7 +192,7 @@ function CreateTest({ addTest, setPathname }) {
               </div>
 
               <label className="create-test__label create-test__label-file">
-                Иллюстрация для обложки
+                Обложка теста
                 {test.img === "" ? (
                   <img className="create-test__icon" src={noPhoto} alt="" />
                 ) : (

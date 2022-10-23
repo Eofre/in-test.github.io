@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import AppRouter from "./components/AppRouter";
 import Header from "./components/header/Header";
@@ -9,10 +10,6 @@ function App() {
   const [pathname, setPathname] = useState("/");
   const [pathnameId, setPathnameId] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
-
-  function returnPathname(pathname) {
-    return pathname;
-  }
 
   const addTest = (test) => {
     setTests([...tests, test]);
