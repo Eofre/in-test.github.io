@@ -1,7 +1,7 @@
 @import "../../colors.scss";
 .question {
   padding: 10px;
-  width: 900px;
+  width: 100%;
   background-color: $color-one;
   border-radius: 2px;
   margin-top: 18px;
@@ -65,15 +65,16 @@
 
   &Image {
     margin-top: 7px;
-    width: 300px;
-    height: 300px;
+    width: 270px;
+    height: 270px;
     border-radius: 2px;
+    outline: 2px solid $color-description;
 
     &NoPhoto {
       border-radius: 2px;
       margin-top: 7px;
-      width: 300px;
-      height: 300px;
+      width: 270px;
+      height: 270px;
       padding: 115px;
       background-color: $color-three;
     }

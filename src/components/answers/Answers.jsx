@@ -12,6 +12,7 @@ function Answers({
 }) {
   return (
     <div>
+      <p className={cl.text}>Варианты ответов</p>
       {answers.map((item, index) => (
         <Answer
           key={index}
