@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/in-test.github.io/static/css/main.2b8d5751.css",
-    "main.js": "/in-test.github.io/static/js/main.e396a72a.js",
+    "main.js": "/in-test.github.io/static/js/main.e6ae8f8f.js",
     "static/js/787.36d880cc.chunk.js": "/in-test.github.io/static/js/787.36d880cc.chunk.js",
     "static/media/test-result.svg": "/in-test.github.io/static/media/test-result.db7b3a5b70b8e613096a0c628dd45ad8.svg",
     "static/media/rocket.svg": "/in-test.github.io/static/media/rocket.4f3b4f5c6335d2d64309bc006d58dbe2.svg",
@@ -11,11 +11,11 @@
     "static/media/delete.svg": "/in-test.github.io/static/media/delete.0056e2373d54d0ca9696ced37c82efac.svg",
     "static/media/close.svg": "/in-test.github.io/static/media/close.16ee77fa1dabd13d77e0f8c21166234f.svg",
     "main.2b8d5751.css.map": "/in-test.github.io/static/css/main.2b8d5751.css.map",
-    "main.e396a72a.js.map": "/in-test.github.io/static/js/main.e396a72a.js.map",
+    "main.e6ae8f8f.js.map": "/in-test.github.io/static/js/main.e6ae8f8f.js.map",
     "787.36d880cc.chunk.js.map": "/in-test.github.io/static/js/787.36d880cc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2b8d5751.css",
-    "static/js/main.e396a72a.js"
+    "static/js/main.e6ae8f8f.js"
   ]
 }
