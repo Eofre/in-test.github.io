@@ -125,8 +125,6 @@ function CreateTest({ addTest, setPathname }) {
     setTest({ ...test, questions: questions });
   }, [questions]);
 
-  console.log(test);
-
   return (
     <section className="create-test">
       <Modal visible={modal} setVisible={setModal}>
