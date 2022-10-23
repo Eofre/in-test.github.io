@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/in-test.github.io/static/css/main.4e8a6568.css",
-    "main.js": "/in-test.github.io/static/js/main.74c49ebd.js",
+    "main.css": "/in-test.github.io/static/css/main.ab39c69a.css",
+    "main.js": "/in-test.github.io/static/js/main.0153d443.js",
     "static/js/787.36d880cc.chunk.js": "/in-test.github.io/static/js/787.36d880cc.chunk.js",
     "static/media/test-result.svg": "/in-test.github.io/static/media/test-result.db7b3a5b70b8e613096a0c628dd45ad8.svg",
+    "static/media/rocket.svg": "/in-test.github.io/static/media/rocket.4f3b4f5c6335d2d64309bc006d58dbe2.svg",
     "index.html": "/in-test.github.io/index.html",
-    "static/media/camera.svg": "/in-test.github.io/static/media/camera.3e00264a53c89a6129bd12eef904a891.svg",
+    "static/media/quiz.svg": "/in-test.github.io/static/media/quiz.ed51fefcf6ca22f9f173e3fcec4afe88.svg",
+    "static/media/camera.svg": "/in-test.github.io/static/media/camera.b36c95df4e69cf873e6c20f016b050f1.svg",
     "static/media/delete.svg": "/in-test.github.io/static/media/delete.0056e2373d54d0ca9696ced37c82efac.svg",
     "static/media/close.svg": "/in-test.github.io/static/media/close.16ee77fa1dabd13d77e0f8c21166234f.svg",
-    "main.4e8a6568.css.map": "/in-test.github.io/static/css/main.4e8a6568.css.map",
-    "main.74c49ebd.js.map": "/in-test.github.io/static/js/main.74c49ebd.js.map",
+    "main.ab39c69a.css.map": "/in-test.github.io/static/css/main.ab39c69a.css.map",
+    "main.0153d443.js.map": "/in-test.github.io/static/js/main.0153d443.js.map",
     "787.36d880cc.chunk.js.map": "/in-test.github.io/static/js/787.36d880cc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4e8a6568.css",
-    "static/js/main.74c49ebd.js"
+    "static/css/main.ab39c69a.css",
+    "static/js/main.0153d443.js"
   ]
 }
